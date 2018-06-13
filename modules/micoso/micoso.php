@@ -1,7 +1,7 @@
 <?php
     class MiCoso extends Module
     {
-        
+        //gsfgd
         public function loadSQLFile($sql_file){
             $sql_content=file_get_contents($sql_file);
             $sql_content=str_replace('PREFIX_',_DB_PREFIX_,$sql_content);
