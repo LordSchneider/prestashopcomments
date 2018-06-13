@@ -57,13 +57,13 @@
 	</div>
     <hr />
 {/foreach}
-</div>
 <div class="rte">
     {assign var=params value=[
         'module_action' => 'list',
-        'id_product'=> $smarty.get.id_product
+        'product_rewrite' => $product->link_rewrite,
+        'id_product'=> $smarty.get.id_product,
+        'page' => 1
     ]}
-	<a href="{$link->getModuleLink('mymodcomments', 'comments', $params)}">
-    {l s='Ver todos los comentarios' mod='mymodcomments'}</a>
+	<a href="{$link->getModuleLink('mymodcomments', 'comments', $params)}">{l s='Ver todos los Comentarios' mod='mymodcomments'}</a>
 </div>
 {/if}
