@@ -29,7 +29,7 @@
             }
             $sql_file=dirname(__FILE__).'/install/install.sql';
             $this->loadSQLFile($sql_file);
-            if (!$this->registerHook('displayProductTabContent') && !$this->registerHook('displayBackOfficeHeader'))
+            if (!$this->registerHook('displayProductTabContent') || !$this->registerHook('displayBackOfficeHeader') || !$this->registerHook('ModuleRoutes'))
             return false;
             Configuration::updateValue('MYMOD_GRADES','1');
             Configuration::updateValue('MYMOD_COMMENTS','1');
@@ -125,5 +125,36 @@
             }
             $this->context->smarty->assign('pc_base_dir',__PS_BASE_URI__.'modules/'.$this->name.'/');
             $this->display(__FILE__,'displayBackOfficeHeader.tpl');
+        }
+        public function hookModuleRoutes(){
+            return array(
+                'module-micoso-comments' => array(
+                    'controller' => 'comments',
+                    'rule' => 'product-comments{/:module_action}{/:product_rewrite}{/:id_product}/page{/:page}',
+                    'keywords' => array(
+                        'id_product' => array(
+                            'regexp' => '[\d]+',
+                            'param' => 'id_product'
+                        ),
+                        'page' => array(
+                            'regexp' => '[\d]+',
+                            'param' => 'page'
+                        ),
+                        'module_action' => array(
+                            'regexp' => '[\w]+',
+                            'param' => 'module_action'
+                        ),
+                        'product_rewrite' => array(
+                            'regexp' => '[\w-_]+',
+                            'param' => 'product_rewrite'
+                        ),
+                    ),
+                    'params' => array(
+                        'fc' => 'module',
+                        'module' => 'mymodcomments',
+                        'controller' => 'comments'
+                    )
+                )
+            );
         }
     }
