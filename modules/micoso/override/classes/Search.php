@@ -13,7 +13,7 @@ class Search extends SearchCore
 			foreach ($products as $p)
 				$id_product_list[] = (int)$p['id_product'];
 			require_once(dirname(__FILE__).'/../../modules/mymodcomments/classes/MyModComment.php');
-			$grades_comments = MyModComment::getInfosOnProductsList($id_product_list);
+			$grades_comments = Db::getInstance()->executeS('SELECT `id_product`, AVG(`grade`) as grade_avg, count(`ai_di`) as nb_comments FROM `'._DB_PREFIX_. 'micoso` WHERE `ai_di` IN('.implode(',',$id_product_list).') GROUP BY `ai_di`');
 			foreach ($products as $kp => $p)
 				foreach ($grades_comments as $gc)
 					if ($gc['id_product'] == $p['id_product'])
