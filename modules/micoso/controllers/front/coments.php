@@ -1,23 +1,29 @@
 <?php
 class MiCosoCommentsModuleFrontController extends ModuleFrontController{
+    public function setMedia(){
+        parent::setMedia();
+        $this->path=__PS_BASE_URI__.'modules/mymodcomments/';
+		$this->context->controller->addCSS($this->path.'views/css/star-rating.css', 'all');
+		$this->context->controller->addJS($this->path.'views/js/star-rating.js');
+		$this->context->controller->addCSS($this->path.'views/css/micoso.css', 'all');
+		$this->context->controller->addJS($this->path.'views/js/micoso.js');
+    }
     public function initList(){
+        $nb_comments=Db::getInstance()->getValue('SELECT COUNT (`id_product`) FROM `'._DB_PREFIX_.'micoso` WHERE `id_product` = '.(int)$this->product->id);
+        $nb_per_page=10;
+        $nb_pages=ceil($nb_comments/$nb_per_page);
+        $page=1;
+        if (Tools::getValue('page')) {
+            $page=(int)$_GET['page'];
+        }
+        $limit_start=($page-1)*$nb_per_page;
+        $limit_end=$nb_per_page;
+        $comments=Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'mymod_comment` WHERE `id_product` = '.(int)$this->product->id.' ORDER BY `date_add` DESC LIMIT'.(int)$limit_start.', '.(int)$limit_end);
         $this->setTemplate('list.tpl');
-        $comments=Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'mymod_comment` WHERE `id_product` = '.(int)$this->product->id.' ORDER BY `date_add` DESC');
-        $this->context->smarty->assign('comments', $comments);
-		$this->context->smarty->assign('product', $this->product);
-		$this->context->smarty->assign('page', $page);
-		$this->context->smarty->assign('nb_pages', $nb_pages);
     }
     public function initContent()
 	{
+        $this->product=new Product((int)$id_product,false, $this->context->cookie->id_lang);
         parent::initContent();
-        $id_product=(int) Tools::getValue('id_product');
-        $module_action=Tools::getValue('module_action');
-		$actions_list= array(
-            'list'=>'initList'
-        );
-        if ($id_product>0 && isset($actions_list[$module_action])) {
-            $this->$actions_list[$module_action]();
-        }
 	}
 }

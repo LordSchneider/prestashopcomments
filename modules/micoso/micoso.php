@@ -1,7 +1,6 @@
 <?php
     class MiCoso extends Module
     {
-        //gsfgd
         public function loadSQLFile($sql_file){
             $sql_content=file_get_contents($sql_file);
             $sql_content=str_replace('PREFIX_',_DB_PREFIX_,$sql_content);
@@ -30,7 +29,7 @@
             }
             $sql_file=dirname(__FILE__).'/install/install.sql';
             $this->loadSQLFile($sql_file);
-            if (!$this->registerHook('displayProductTabContent') && !$this->registerHook('displayBackOfficeHeader'))
+            if (!$this->registerHook('displayProductTabContent') || !$this->registerHook('displayBackOfficeHeader') || !$this->registerHook('ModuleRoutes'))
             return false;
             Configuration::updateValue('MYMOD_GRADES','1');
             Configuration::updateValue('MYMOD_COMMENTS','1');
@@ -64,8 +63,9 @@
         }
         public function getContent(){
             $this->processConfiguration();
-            $this->assignConfiguration();
-            return $this->display(__FILE__,'getContent.tpl');
+            $html_confirmation_message=$this->display(__FILE__,'getContent.tpl');
+            $html_form=$this->renderForm();
+            return $html_confirmation_message.$html_form;
         }
         public function processProductTabContent(){
             if (Tools::isSubmit('mymod_pc_submit_comment'))  {
@@ -84,7 +84,7 @@
                         'comment'=>"$comment",
                         'date_add'=>date('Y-m-d H:i:s'),
                     );
-                    Db::getInstance()->insert('mymod_comment',$insert);
+                    Db::getInstance()->insert('micoso',$insert);
                     $this->context->smarty->assign('new_comment_posted','true');
                 }
             }
@@ -98,7 +98,7 @@
             $enable_grades=Configuration::get('MYMOD_GRADES');
             $enable_comments=Configuration::get('MYMOD_COMMENTS');
             $id_product=Tools::getValue('id_product');
-            $comments=Db::getInstance()->executeS('SELECT * FROM '._DB_PREFIX_.'mymod_comment WHERE id_product = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
+            $comments=Db::getInstance()->executeS('SELECT * FROM '._DB_PREFIX_.'micoso WHERE id_product = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
             $this->context->controller->addCSS($this->_path.'views/css/micoso.css','all');
             $this->context->controller->addCSS($this->_path.'views/css/star-rating.css','all');
             $this->context->controller->addJS($this->_path.'views/js/star-rating.js');
@@ -106,7 +106,7 @@
             $this->context->smarty->assign('enable_grades',$enable_grades);
             $this->context->smarty->assign('enable_comments',$enable_comments);
             $this->context->smarty->assign('comments',$comments);
-            $comments=Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'mymod_comment` WHERE `id_product` = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
+            $comments=Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'micoso` WHERE `id_product` = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
         }
         public function onClickOption($type, $href=false){
             $confirm_reset= $this->l('Reinicializar este modulo borrara todos los datos de tu base de datos.¿Deseas reinicializarlo? ');
@@ -126,5 +126,84 @@
             }
             $this->context->smarty->assign('pc_base_dir',__PS_BASE_URI__.'modules/'.$this->name.'/');
             $this->display(__FILE__,'displayBackOfficeHeader.tpl');
+        }
+        public function renderForm()
+        {
+            $fields_form = array(
+                'form' => array(
+                    'legend' => array(
+                        'title' =>'My Module configuration',
+                        'icon' => 'icon-envelope'
+                    ),
+                    'input' => array(
+                        array(
+                            'type' => 'switch',
+                            'label' =>'Enable grades:',
+                            'name' => 'enable_grades',
+                            'desc' =>'Enable grades on products.',
+                            'values' => array(
+                                array('id' => 'enable_grades_1', 'value' => 1, 'label' =>'Enabled'),
+                                array('id' => 'enable_grades_0', 'value' => 0, 'label' =>'Disabled')
+                            ),
+                        ),
+                        array(
+                            'type' => 'switch',
+                            'label' =>'Enable comments:', 'name' => 'enable_comments',
+                            'desc' =>'Enable comments on products.',
+                            'values' => array(
+                                array('id' => 'enable_comments_1', 'value' => 1, 'label' =>'Enabled'),
+                                array('id' => 'enable_comments_0', 'value' => 0, 'label' =>'Disabled')
+                            ),
+                        ),
+                    ),
+                    'submit' => array('title' =>'Save'))
+                )
+            ;
+            $helper = new HelperForm();
+            $helper->table = 'mymodcomments';
+            $helper->default_form_language = (int)Configuration::get('PS_LANG_DEFAULT');
+            $helper->allow_employee_form_lang = (int)Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG');
+            $helper->submit_action = 'mymod_pc_form';
+            $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false).'&configure='.$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name;
+            $helper->token = Tools::getAdminTokenLite('AdminModules');
+            $helper->tpl_vars = array(
+                'fields_value' => array(
+                    'enable_grades' => Tools::getValue('enable_grades', Configuration::get('MYMOD_GRADES')),
+                    'enable_comments' => Tools::getValue('enable_comments', Configuration::get('MYMOD_COMMENTS')),
+                ),
+                'languages' => $this->context->controller->getLanguages()
+            );
+            return $helper->generateForm(array($fields_form));
+        }
+        public function hookModuleRoutes(){
+            return array(
+                'module-micoso-comments' => array(
+                    'controller' => 'comments',
+                    'rule' => 'product-comments{/:module_action}{/:product_rewrite}{/:id_product}/page{/:page}',
+                    'keywords' => array(
+                        'id_product' => array(
+                            'regexp' => '[\d]+',
+                            'param' => 'id_product'
+                        ),
+                        'page' => array(
+                            'regexp' => '[\d]+',
+                            'param' => 'page'
+                        ),
+                        'module_action' => array(
+                            'regexp' => '[\w]+',
+                            'param' => 'module_action'
+                        ),
+                        'product_rewrite' => array(
+                            'regexp' => '[\w-_]+',
+                            'param' => 'product_rewrite'
+                        ),
+                    ),
+                    'params' => array(
+                        'fc' => 'module',
+                        'module' => 'mymodcomments',
+                        'controller' => 'comments'
+                    )
+                )
+            );
         }
     }
