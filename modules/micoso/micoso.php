@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(__FILE__).'/classes/MiCoso.php');
     class MiCoso extends Module
     {
         public function loadSQLFile($sql_file){
@@ -31,6 +32,9 @@
             $this->loadSQLFile($sql_file);
             if (!$this->registerHook('displayProductTabContent') || !$this->registerHook('displayBackOfficeHeader') || !$this->registerHook('ModuleRoutes'))
             return false;
+            if (!$this->installTab('AdminCatalog','AdminMiCoso','MiCoso')) {
+                return false;
+            }
             Configuration::updateValue('MYMOD_GRADES','1');
             Configuration::updateValue('MYMOD_COMMENTS','1');
             return true;
@@ -40,6 +44,8 @@
             return false;
             $sql_file=dirname(__FILE__).'/install/uninstall.sql';
             if (!$this->loadSQLFile($sql_file))
+            return false;
+            if (!$this->uninstallTab('AdminMiCoso'))
             return false;
             Configuration::deleteByName('MYMOD_GRADES');
             Configuration::deleteByName('MYMOD_COMMENTS');
@@ -109,16 +115,15 @@
             $comments=Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'micoso` WHERE `id_product` = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
         }
         public function onClickOption($type, $href=false){
-            $confirm_reset= $this->l('Reinicializar este modulo borrara todos los datos de tu base de datos.¿Deseas reinicializarlo? ');
-            $reset_callback="return mymodcomments_reset('".addslashes($confirm_reset)."');";
-            $matchType=array(
-                'reset'=>"return confirm('Resetear?');",
-                'delete'=>"return confirm('Quieres borrar?');",
-            );
-            if (isset($matchType[$type])) {
-                return $matchType[$type];
-                return '';
-            }
+            $confirm_reset = $this->l('Reincializar este modulo borrara todos los datos de tu base de datos. ¿Seguro que quieres hacerlo?');
+		    $reset_callback = "return mymodcomments_reset('".addslashes($confirm_reset)."');";
+		    $matchType = array(
+			'reset' => $reset_callback,
+			'delete' => "return confirm('Seguro Chaz?')",
+		        );
+		    if (isset($matchType[$type]))
+			    return $matchType[$type];
+		    return '';
         }
         public function hookDisplayBackOfficeHeader(){
             if(Tools::getValue('controller')!='AdminModules'){
@@ -127,8 +132,7 @@
             $this->context->smarty->assign('pc_base_dir',__PS_BASE_URI__.'modules/'.$this->name.'/');
             $this->display(__FILE__,'displayBackOfficeHeader.tpl');
         }
-        public function renderForm()
-        {
+        public function renderForm(){
             $fields_form = array(
                 'form' => array(
                     'legend' => array(
@@ -174,6 +178,21 @@
                 'languages' => $this->context->controller->getLanguages()
             );
             return $helper->generateForm(array($fields_form));
+        }
+        public function installTab($parent,$class_name,$name){
+            $tab=new Tab();
+            $tab->id_parent=(int)Tab::getIdFromClassName($parent);
+            $tab->name=array();
+            foreach(Language::getLanguages(true) as $lang)
+            $tab->name[$lang['id_lang']]=$name;
+            $tab->class_name=$class_name;
+            $tab->active=1;
+            return $tab->add();
+        }
+        public function uninstallTab($class_name){
+            $id_tab=(int)Tab::getIdFromClassName($class_name);
+            $tab=new Tab((int) $id_tab);
+            return $tab->delete();
         }
         public function hookModuleRoutes(){
             return array(

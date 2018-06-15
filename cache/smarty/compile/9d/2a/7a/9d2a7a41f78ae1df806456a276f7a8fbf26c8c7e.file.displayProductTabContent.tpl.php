@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2018-06-15 14:27:40
+<?php /* Smarty version Smarty-3.1.19, created on 2018-06-15 16:03:05
          compiled from "C:\xampp\htdocs\prestashop\modules\Micoso\views\templates\hook\displayProductTabContent.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:52495b24213c5a5be6-27477122%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:75985b243799953094-06811768%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d2a7a41f78ae1df806456a276f7a8fbf26c8c7e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\prestashop\\modules\\Micoso\\views\\templates\\hook\\displayProductTabContent.tpl',
-      1 => 1529093029,
+      1 => 1529096694,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '52495b24213c5a5be6-27477122',
+  'nocache_hash' => '75985b243799953094-06811768',
   'function' => 
   array (
   ),
@@ -25,9 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5b24213c63c1f8_03040962',
+  'unifunc' => 'content_5b2437999f08d6_14245301',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b24213c63c1f8_03040962')) {function content_5b24213c63c1f8_03040962($_smarty_tpl) {?><h3 class="page-product-heading" id="mymodcomments-content-tab"<?php if (isset($_smarty_tpl->tpl_vars['new_comment_posted']->value)) {?> data-scroll="true"<?php }?>><?php echo smartyTranslate(array('s'=>'Product Comments','mod'=>'mymodcomments'),$_smarty_tpl);?>
+<?php if ($_valid && !is_callable('content_5b2437999f08d6_14245301')) {function content_5b2437999f08d6_14245301($_smarty_tpl) {?><h3 class="page-product-heading" id="mymodcomments-content-tab"<?php if (isset($_smarty_tpl->tpl_vars['new_comment_posted']->value)) {?> data-scroll="true"<?php }?>><?php echo smartyTranslate(array('s'=>'Product Comments','mod'=>'mymodcomments'),$_smarty_tpl);?>
 </h3>
 <?php if ($_smarty_tpl->tpl_vars['enable_grades']->value==1||$_smarty_tpl->tpl_vars['enable_comments']->value==1) {?>
 <div class="rte">
