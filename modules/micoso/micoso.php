@@ -77,14 +77,14 @@
                 $comment=pSQL($comment);
                 if ($grade!=0 || !empty($name) || !empty($comment) || !empty($mail)) {
                         $insert=array(
-                        'ai_di'=>(int) $id_product,
+                        'id_product'=>(int) $id_product,
                         'namen'=>"$name",
                         'email'=>"$mail",
                         'grade'=>(int) $grade,
                         'comment'=>"$comment",
                         'date_add'=>date('Y-m-d H:i:s'),
                     );
-                    Db::getInstance()->insert('mymod_comment',$insert);
+                    Db::getInstance()->insert('micoso',$insert);
                     $this->context->smarty->assign('new_comment_posted','true');
                 }
             }
@@ -98,7 +98,7 @@
             $enable_grades=Configuration::get('MYMOD_GRADES');
             $enable_comments=Configuration::get('MYMOD_COMMENTS');
             $id_product=Tools::getValue('id_product');
-            $comments=Db::getInstance()->executeS('SELECT * FROM '._DB_PREFIX_.'mymod_comment WHERE id_product = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
+            $comments=Db::getInstance()->executeS('SELECT * FROM '._DB_PREFIX_.'micoso WHERE id_product = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
             $this->context->controller->addCSS($this->_path.'views/css/micoso.css','all');
             $this->context->controller->addCSS($this->_path.'views/css/star-rating.css','all');
             $this->context->controller->addJS($this->_path.'views/js/star-rating.js');
@@ -106,7 +106,7 @@
             $this->context->smarty->assign('enable_grades',$enable_grades);
             $this->context->smarty->assign('enable_comments',$enable_comments);
             $this->context->smarty->assign('comments',$comments);
-            $comments=Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'mymod_comment` WHERE `id_product` = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
+            $comments=Db::getInstance()->executeS('SELECT * FROM `'._DB_PREFIX_.'micoso` WHERE `id_product` = '.(int)$id_product.' ORDER BY `date_add` DESC LIMIT 3');
         }
         public function onClickOption($type, $href=false){
             $confirm_reset= $this->l('Reinicializar este modulo borrara todos los datos de tu base de datos.¿Deseas reinicializarlo? ');
