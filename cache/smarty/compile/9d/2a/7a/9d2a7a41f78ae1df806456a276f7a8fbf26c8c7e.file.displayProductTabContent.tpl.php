@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2018-06-13 14:24:22
+<?php /* Smarty version Smarty-3.1.19, created on 2018-06-15 11:44:52
          compiled from "C:\xampp\htdocs\prestashop\modules\Micoso\views\templates\hook\displayProductTabContent.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:243625b217d76e0cce2-87202731%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:142555b23fb148fa184-65410525%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d2a7a41f78ae1df806456a276f7a8fbf26c8c7e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\prestashop\\modules\\Micoso\\views\\templates\\hook\\displayProductTabContent.tpl',
-      1 => 1528834653,
+      1 => 1528921540,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '243625b217d76e0cce2-87202731',
+  'nocache_hash' => '142555b23fb148fa184-65410525',
   'function' => 
   array (
   ),
@@ -22,14 +22,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'enable_comments' => 0,
     'comments' => 0,
     'comment' => 0,
+    'product' => 0,
     'params' => 0,
     'link' => 0,
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5b217d76e77ac4_64706326',
+  'unifunc' => 'content_5b23fb1495d5d7_16516007',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b217d76e77ac4_64706326')) {function content_5b217d76e77ac4_64706326($_smarty_tpl) {?><h3 class="page-product-heading" id="mymodcomments-content-tab"<?php if (isset($_smarty_tpl->tpl_vars['new_comment_posted']->value)) {?> data-scroll="true"<?php }?>><?php echo smartyTranslate(array('s'=>'Product Comments','mod'=>'mymodcomments'),$_smarty_tpl);?>
+<?php if ($_valid && !is_callable('content_5b23fb1495d5d7_16516007')) {function content_5b23fb1495d5d7_16516007($_smarty_tpl) {?><h3 class="page-product-heading" id="mymodcomments-content-tab"<?php if (isset($_smarty_tpl->tpl_vars['new_comment_posted']->value)) {?> data-scroll="true"<?php }?>><?php echo smartyTranslate(array('s'=>'Product Comments','mod'=>'mymodcomments'),$_smarty_tpl);?>
 </h3>
 <?php if ($_smarty_tpl->tpl_vars['enable_grades']->value==1||$_smarty_tpl->tpl_vars['enable_comments']->value==1) {?>
 <div class="rte">
@@ -106,12 +107,10 @@ $_smarty_tpl->tpl_vars['comment']->_loop = true;
 	</div>
     <hr />
 <?php } ?>
-</div>
 <div class="rte">
-    <?php $_smarty_tpl->tpl_vars['params'] = new Smarty_variable(array('module_action'=>'list','id_product'=>$_GET['id_product']), null, 0);?>
+    <?php $_smarty_tpl->tpl_vars['params'] = new Smarty_variable(array('module_action'=>'list','product_rewrite'=>$_smarty_tpl->tpl_vars['product']->value->link_rewrite,'id_product'=>$_GET['id_product'],'page'=>1), null, 0);?>
 	<a href="<?php echo $_smarty_tpl->tpl_vars['link']->value->getModuleLink('mymodcomments','comments',$_smarty_tpl->tpl_vars['params']->value);?>
-">
-    <?php echo smartyTranslate(array('s'=>'Ver todos los comentarios','mod'=>'mymodcomments'),$_smarty_tpl);?>
+"><?php echo smartyTranslate(array('s'=>'Ver todos los Comentarios','mod'=>'mymodcomments'),$_smarty_tpl);?>
 </a>
 </div>
 <?php }?><?php }} ?>

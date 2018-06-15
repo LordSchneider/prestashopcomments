@@ -127,52 +127,53 @@
             $this->context->smarty->assign('pc_base_dir',__PS_BASE_URI__.'modules/'.$this->name.'/');
             $this->display(__FILE__,'displayBackOfficeHeader.tpl');
         }
-        public function renderForm(){
+        public function renderForm()
+        {
             $fields_form = array(
                 'form' => array(
                     'legend' => array(
-                        'title' => $this->module->l('My Module configuration'),
+                        'title' =>'My Module configuration',
                         'icon' => 'icon-envelope'
                     ),
                     'input' => array(
                         array(
                             'type' => 'switch',
-                            'label' => $this->module->l('Enable grades:'),
+                            'label' =>'Enable grades:',
                             'name' => 'enable_grades',
-                            'desc' => $this->module->l('Enable grades on products.'),
+                            'desc' =>'Enable grades on products.',
                             'values' => array(
-                                array('id' => 'enable_grades_1', 'value' => 1, 'label' => $this->module->l('Enabled')),
-                                array('id' => 'enable_grades_0', 'value' => 0, 'label' => $this->module->l('Disabled'))
+                                array('id' => 'enable_grades_1', 'value' => 1, 'label' =>'Enabled'),
+                                array('id' => 'enable_grades_0', 'value' => 0, 'label' =>'Disabled')
                             ),
                         ),
                         array(
                             'type' => 'switch',
-                            'label' => $this->module->l('Enable comments:'), 'name' => 'enable_comments',
-                            'desc' => $this->module->l('Enable comments on products.'),
+                            'label' =>'Enable comments:', 'name' => 'enable_comments',
+                            'desc' =>'Enable comments on products.',
                             'values' => array(
-                                array('id' => 'enable_comments_1', 'value' => 1, 'label' => $this->module->l('Enabled')),
-                                array('id' => 'enable_comments_0', 'value' => 0, 'label' => $this->module->l('Disabled'))
+                                array('id' => 'enable_comments_1', 'value' => 1, 'label' =>'Enabled'),
+                                array('id' => 'enable_comments_0', 'value' => 0, 'label' =>'Disabled')
                             ),
                         ),
                     ),
-                    'submit' => array('title' => $this->module->l('Save'))
+                    'submit' => array('title' =>'Save'))
                 )
-            );
+            ;
             $helper = new HelperForm();
-		    $helper->table = 'mymodcomments';
-	    	$helper->default_form_language = (int)Configuration::get('PS_LANG_DEFAULT');
-		    $helper->allow_employee_form_lang = (int)Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG');
-	    	$helper->submit_action = 'mymod_pc_form';
-	    	$helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false).'&configure='.$this->module->name.'&tab_module='.$this->module->tab.'&module_name='.$this->module->name;
-	    	$helper->token = Tools::getAdminTokenLite('AdminModules');
-	    	$helper->tpl_vars = array(
-			    'fields_value' => array(
-				'enable_grades' => Tools::getValue('enable_grades', Configuration::get('MYMOD_GRADES')),
-				'enable_comments' => Tools::getValue('enable_comments', Configuration::get('MYMOD_COMMENTS')),
-		    	    ),
-			    'languages' => $this->context->controller->getLanguages()
-		     );
-		    return $helper->generateForm(array($fields_form));
+            $helper->table = 'mymodcomments';
+            $helper->default_form_language = (int)Configuration::get('PS_LANG_DEFAULT');
+            $helper->allow_employee_form_lang = (int)Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG');
+            $helper->submit_action = 'mymod_pc_form';
+            $helper->currentIndex = $this->context->link->getAdminLink('AdminModules', false).'&configure='.$this->name.'&tab_module='.$this->tab.'&module_name='.$this->name;
+            $helper->token = Tools::getAdminTokenLite('AdminModules');
+            $helper->tpl_vars = array(
+                'fields_value' => array(
+                    'enable_grades' => Tools::getValue('enable_grades', Configuration::get('MYMOD_GRADES')),
+                    'enable_comments' => Tools::getValue('enable_comments', Configuration::get('MYMOD_COMMENTS')),
+                ),
+                'languages' => $this->context->controller->getLanguages()
+            );
+            return $helper->generateForm(array($fields_form));
         }
         public function hookModuleRoutes(){
             return array(
