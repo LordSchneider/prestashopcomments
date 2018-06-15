@@ -57,13 +57,4 @@
 	</div>
     <hr />
 {/foreach}
-</div>
-<div class="rte">
-    {assign var=params value=[
-        'module_action' => 'list',
-        'id_product'=> $smarty.get.id_product
-    ]}
-	<a href="{$link->getModuleLink('mymodcomments', 'comments', $params)}">
-    {l s='Ver todos los comentarios' mod='mymodcomments'}</a>
-</div>
 {/if}
