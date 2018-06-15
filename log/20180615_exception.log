@@ -1,0 +1,12 @@
+*ERROR* 	2018/06/15 - 14:06:36: Unknown column 'ai_di' in 'field list'<br /><br /><pre>INSERT INTO `ps_mymod_comment` (`ai_di`, `namen`, `email`, `grade`, `comment`, `date_add`) VALUES ('2', 'GARTROL_Y_THO', 'naciocasado@gmail.com', '4', 'Maldito Cristiano', '2018-06-15 14:06:36')</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/15 - 14:08:17: Unknown table 'prestashop.ps_micoso'<br /><br /><pre>DROP TABLE `ps_micoso`</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/15 - 14:09:33: Key column 'id_mymod_comment' doesn't exist in table<br /><br /><pre>CREATE TABLE IF NOT EXISTS ps_micoso (ai_di int(11) NOT NULL AUTO_INCREMENT, 
+id_product int(11) NOT NULL,namen VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, grade tinyint(1) NOT NULL, 
+comment text NOT NULL,date_add datetime NOT NULL,PRIMARY KEY(id_mymod_comment)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/15 - 14:12:14: Key column 'id_mymod_comment' doesn't exist in table<br /><br /><pre>CREATE TABLE IF NOT EXISTS ps_micoso (ai_di int(11) NOT NULL AUTO_INCREMENT, 
+id_product int(11) NOT NULL,namen VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, grade tinyint(1) NOT NULL, 
+comment text NOT NULL,date_add datetime NOT NULL,PRIMARY KEY(id_mymod_comment)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/15 - 14:13:04: Unknown table 'prestashop.ps_micoso'<br /><br /><pre>DROP TABLE `ps_micoso`</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/15 - 14:20:56: Table 'prestashop.ps_mymod_comment' doesn't exist<br /><br /><pre>INSERT INTO `ps_mymod_comment` (`ai_di`, `namen`, `email`, `grade`, `comment`, `date_add`) VALUES ('2', 'GARTROL_Y_THO', 'naciocasado@gmail.com', '4', 'Maldito Cristiano', '2018-06-15 14:20:56')</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/15 - 14:21:23: Table 'prestashop.ps_mymod_comment' doesn't exist<br /><br /><pre>SELECT * FROM ps_mymod_comment WHERE id_product = 2 ORDER BY `date_add` DESC LIMIT 3</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/15 - 14:24:36: Duplicate entry '2' for key 'PRIMARY'<br /><br /><pre>INSERT INTO `ps_micoso` (`ai_di`, `namen`, `email`, `grade`, `comment`, `date_add`) VALUES ('2', 'GARTROL_Y_THO', 'naciocasado@gmail.com', '2', 'dsadsaadsdassadsadsaddsdasadsadsadsdsadasdas', '2018-06-15 14:24:36')</pre> at line 791 in file classes/db/Db.php
