@@ -1,1 +1,1 @@
-DROP TABLE `PREFIX_micoso`
+DROP TABLE `ps_micoso`

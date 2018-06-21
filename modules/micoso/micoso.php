@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__).'/classes/MiCoso.php');
+require_once(dirname(__FILE__).'/classes/MiCosos.php');
     class MiCoso extends Module
     {
         public function loadSQLFile($sql_file){
@@ -32,7 +32,7 @@ require_once(dirname(__FILE__).'/classes/MiCoso.php');
             $this->loadSQLFile($sql_file);
             if (!$this->registerHook('displayProductTabContent') || !$this->registerHook('displayBackOfficeHeader') || !$this->registerHook('ModuleRoutes'))
             return false;
-            if (!$this->installTab('AdminCatalog','AdminMiCoso','MiCoso')) {
+            if (!$this->installTab('AdminCatalog','AdminMiCoso','Mi Coso')) {
                 return false;
             }
             Configuration::updateValue('MYMOD_GRADES','1');
@@ -179,14 +179,19 @@ require_once(dirname(__FILE__).'/classes/MiCoso.php');
             );
             return $helper->generateForm(array($fields_form));
         }
-        public function installTab($parent,$class_name,$name){
-            $tab=new Tab();
-            $tab->id_parent=(int)Tab::getIdFromClassName($parent);
-            $tab->name=array();
-            foreach(Language::getLanguages(true) as $lang)
-            $tab->name[$lang['id_lang']]=$name;
-            $tab->class_name=$class_name;
-            $tab->active=1;
+        public function installTab($parent, $class_name, $name) {
+            $tab = new Tab();
+            $tab->id_parent = (int)Tab::getIdFromClassName($parent);
+            $tab->name = array();
+        
+            foreach (Language::getLanguages(true) as $lang) {
+                $tab->name[$lang['id_lang']]  = $name;
+            }
+        
+            $tab->class_name = $class_name;
+            $tab->module = $this->name;
+            $tab->active = 1;
+        
             return $tab->add();
         }
         public function uninstallTab($class_name){

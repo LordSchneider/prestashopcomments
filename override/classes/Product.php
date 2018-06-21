@@ -3,7 +3,7 @@ class Product extends ProductCore
 {
 	/*
     * module: Micoso
-    * date: 2018-06-18 11:07:10
+    * date: 2018-06-20 11:08:49
     * version: 1.1
     */
     public function getComments($limit_start, $limit_end = false)

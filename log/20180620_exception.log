@@ -1,0 +1,204 @@
+*ERROR* 	2018/06/20 - 10:53:57: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:54:27: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:55:14: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:55:36: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:55:42: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:55:49: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:55:54: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:56:00: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:56:05: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:56:07: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:56:16: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:56:24: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:56:32: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:57:33: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:57:43: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 10:57:56: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:00:01: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:00:10: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:01:11: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:03:44: Unknown column 'a.id_micoso' in 'order clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:06:19: Key column 'ai_di' doesn't exist in table<br /><br /><pre>CREATE TABLE IF NOT EXISTS ps_micoso (id_micoso int(11) NOT NULL AUTO_INCREMENT, 
+id_product int(11) NOT NULL,namen VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, grade tinyint(1) NOT NULL, 
+comment text NOT NULL,date_add datetime NOT NULL,PRIMARY KEY(ai_di)) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:08:14: Unknown table 'prestashop.ps_micoso'<br /><br /><pre>DROP TABLE `ps_micoso`</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:41:02: Unknown column 'a.id_shop' in 'on clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			LEFT JOIN `ps_product_lang` pl ON (pl.`id_product` = a.`id_product` AND pl.`id_lang` = 1 AND pl.`id_shop` = a.`id_shop`)
+		LEFT JOIN `ps_shop` s ON (s.`id_shop` = a.`id_shop`) 
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php
+*ERROR* 	2018/06/20 - 11:41:51: Unknown column 'a.id_shop' in 'on clause'<br /><br /><pre>SELECT SQL_CALC_FOUND_ROWS
+								 a.*
+			
+			FROM `ps_micoso` a 
+			
+			LEFT JOIN `ps_product_lang` pl ON (pl.`id_product` = a.`id_product` AND pl.`id_lang` = 1)
+		LEFT JOIN `ps_shop` s ON (s.`id_shop` = a.`id_shop`) 
+			 WHERE 1  
+			
+			 ORDER BY a.`id_micoso` ASC  LIMIT 0, 50</pre> at line 791 in file classes/db/Db.php

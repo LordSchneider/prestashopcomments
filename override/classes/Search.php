@@ -3,7 +3,7 @@ class Search extends SearchCore
 {
 	/*
     * module: Micoso
-    * date: 2018-06-18 11:07:11
+    * date: 2018-06-20 11:08:49
     * version: 1.1
     */
     public static function find($id_lang, $expr, $page_number = 1, $page_size = 1, $order_by = 'position',
