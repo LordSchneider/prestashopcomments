@@ -30,7 +30,7 @@ require_once(dirname(__FILE__).'/classes/MiCosos.php');
             }
             $sql_file=dirname(__FILE__).'/install/install.sql';
             $this->loadSQLFile($sql_file);
-            if (!$this->registerHook('displayProductTabContent') || !$this->registerHook('displayBackOfficeHeader') || !$this->registerHook('ModuleRoutes'))
+            if (!$this->registerHook('displayProductTabContent') || !$this->registerHook('displayBackOfficeHeader') || !$this->registerHook('ModuleRoutes') || !$this->registerHook('displayAdminProductsExtra'))
             return false;
             if (!$this->installTab('AdminCatalog','AdminMiCoso','Mi Coso')) {
                 return false;
@@ -100,6 +100,10 @@ require_once(dirname(__FILE__).'/classes/MiCosos.php');
             $this->assignProductTabContent();
             return $this->display(__FILE__,'displayProductTabContent.tpl');
         }
+        public function hookDisplayAdminProductsExtra($params){
+            $controller=$this->getHookController('displayAdminProductsExtra');
+            return $controller->run();
+        }
         public function assignProductTabContent(){
             $enable_grades=Configuration::get('MYMOD_GRADES');
             $enable_comments=Configuration::get('MYMOD_COMMENTS');
@@ -116,7 +120,7 @@ require_once(dirname(__FILE__).'/classes/MiCosos.php');
         }
         public function onClickOption($type, $href=false){
             $confirm_reset = $this->l('Reincializar este modulo borrara todos los datos de tu base de datos. ¿Seguro que quieres hacerlo?');
-		    $reset_callback = "return mymodcomments_reset('".addslashes($confirm_reset)."');";
+		    $reset_callback = "return micoso_reset('".addslashes($confirm_reset)."');";
 		    $matchType = array(
 			'reset' => $reset_callback,
 			'delete' => "return confirm('Seguro Chaz?')",
@@ -164,7 +168,7 @@ require_once(dirname(__FILE__).'/classes/MiCosos.php');
                 )
             ;
             $helper = new HelperForm();
-            $helper->table = 'mymodcomments';
+            $helper->table = 'micoso';
             $helper->default_form_language = (int)Configuration::get('PS_LANG_DEFAULT');
             $helper->allow_employee_form_lang = (int)Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG');
             $helper->submit_action = 'mymod_pc_form';
@@ -224,7 +228,7 @@ require_once(dirname(__FILE__).'/classes/MiCosos.php');
                     ),
                     'params' => array(
                         'fc' => 'module',
-                        'module' => 'mymodcomments',
+                        'module' => 'micoso',
                         'controller' => 'comments'
                     )
                 )
