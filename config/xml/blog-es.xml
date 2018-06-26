@@ -6,6 +6,22 @@
     <language>es</language>
      <atom:link href="https://www.prestashop.com/es/blog/feed.xml" rel="self" type="application/rss+xml" />
       <item>
+    <title>Rich Snippets: cómo destacar en Google tus páginas de producto</title>
+    <link>https://www.prestashop.com/es/blog/anadir-rich-snippets-prestashop-cuales-son-las-ventajas</link>
+    <description>¿Conoces las ventajas que presentan los Rich Snippets y la visibilidad que pueden aportar estos fragmentos enriquecidos a tu tienda online?</description>
+     <pubDate>Fri, 22 Jun 2018 07:54:08 +0200</pubDate>
+ <dc:creator>Jose Facchin</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/es/blog/anadir-rich-snippets-prestashop-cuales-son-las-ventajas</guid>
+  </item>
+  <item>
+    <title>¿Qué es un Test A/B y cómo te ayuda en tu estrategia online?</title>
+    <link>https://www.prestashop.com/es/blog/test-a-b-que-es</link>
+    <description>¿Sabías que realizando &quot;test A/B&quot; de la evolución de tu negocio puedes intuir cómo pivotar y, por ello, mejorar tu estrategia actual?</description>
+     <pubDate>Tue, 19 Jun 2018 13:29:48 +0200</pubDate>
+ <dc:creator>Jose Facchin</dc:creator>
+ <guid isPermaLink="false">https://www.prestashop.com/es/blog/test-a-b-que-es</guid>
+  </item>
+  <item>
     <title>¿Qué es Facebook Live y cómo usarlo en la Fan Page de tu eCommerce?</title>
     <link>https://www.prestashop.com/es/blog/facebook-live</link>
     <description>¿Conoces Facebook Live y todas las ventajas que pueden proporcionar a la estrategia social media de tu tienda online?</description>
@@ -68,22 +84,6 @@
      <pubDate>Mon, 28 May 2018 11:54:55 +0200</pubDate>
  <dc:creator>Jose Facchin</dc:creator>
  <guid isPermaLink="false">https://www.prestashop.com/es/blog/analisis-dafo-matriz-foda</guid>
-  </item>
-  <item>
-    <title>¿Qué son las Métricas y qué importancia tienen para un eCommerce?</title>
-    <link>https://www.prestashop.com/es/blog/metricas-ecommerce</link>
-    <description>¿Sabes cuál es la verdadera importancia de las métricas dentro de una tienda online como la tuya y los diferentes tipos que existen?</description>
-     <pubDate>Mon, 28 May 2018 11:42:05 +0200</pubDate>
- <dc:creator>Armando Salvador</dc:creator>
- <guid isPermaLink="false">https://www.prestashop.com/es/blog/metricas-ecommerce</guid>
-  </item>
-  <item>
-    <title>Presta World Cup ¡participa en el Mundial de tiendas PrestaShop!</title>
-    <link>https://www.prestashop.com/es/blog/presta-world-cup</link>
-    <description>¿Sientes curiosidad por saber en qué consiste el &quot;Presta World Cup&quot;?</description>
-     <pubDate>Wed, 23 May 2018 18:37:12 +0200</pubDate>
- <dc:creator>camille.teissier</dc:creator>
- <guid isPermaLink="false">https://www.prestashop.com/es/blog/presta-world-cup</guid>
   </item>
   </channel>
 </rss>

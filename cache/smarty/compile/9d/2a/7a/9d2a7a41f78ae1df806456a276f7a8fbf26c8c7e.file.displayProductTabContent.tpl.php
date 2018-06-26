@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.19, created on 2018-06-21 09:04:29
+<?php /* Smarty version Smarty-3.1.19, created on 2018-06-26 09:47:35
          compiled from "C:\xampp\htdocs\prestashop\modules\Micoso\views\templates\hook\displayProductTabContent.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:170495b2bbe7d699492-36820763%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:26125b326017d035e1-83092174%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '170495b2bbe7d699492-36820763',
+  'nocache_hash' => '26125b326017d035e1-83092174',
   'function' => 
   array (
   ),
@@ -25,9 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.19',
-  'unifunc' => 'content_5b2bbe7d7c2a86_96189968',
+  'unifunc' => 'content_5b326017d348a7_64902159',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5b2bbe7d7c2a86_96189968')) {function content_5b2bbe7d7c2a86_96189968($_smarty_tpl) {?><h3 class="page-product-heading" id="mymodcomments-content-tab"<?php if (isset($_smarty_tpl->tpl_vars['new_comment_posted']->value)) {?> data-scroll="true"<?php }?>><?php echo smartyTranslate(array('s'=>'Product Comments','mod'=>'mymodcomments'),$_smarty_tpl);?>
+<?php if ($_valid && !is_callable('content_5b326017d348a7_64902159')) {function content_5b326017d348a7_64902159($_smarty_tpl) {?><h3 class="page-product-heading" id="mymodcomments-content-tab"<?php if (isset($_smarty_tpl->tpl_vars['new_comment_posted']->value)) {?> data-scroll="true"<?php }?>><?php echo smartyTranslate(array('s'=>'Product Comments','mod'=>'mymodcomments'),$_smarty_tpl);?>
 </h3>
 <?php if ($_smarty_tpl->tpl_vars['enable_grades']->value==1||$_smarty_tpl->tpl_vars['enable_comments']->value==1) {?>
 <div class="rte">

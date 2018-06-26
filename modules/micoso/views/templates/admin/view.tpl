@@ -15,19 +15,19 @@
         <div class="form-group clearfix">
             <label class="col-lg-3">{l s='Nombre: ' mod='mymodcomments'}</label>
             <div class="col-lg-9">
-                {$micoso->firstname}
+                {$micoso->namen}
             </div>
         </div>
         <div class="form-group clearfix">
             <label class="col-lg-3">{l s='E-Mail: ' mod='mymodcomments'}</label>
             <div class="col-lg-9">
-                {$micoso->mail}
+                {$micoso->email}
             </div>
         </div>
         <div class="form-group clearfix">
             <label class="col-lg-3">{l s='Producto: ' mod='micoso'}</label>
             <div class="col-lg-9">
-                {$micoso->product}
+                {$micoso->product_name} (#{$micoso->id_product})
             </div>
         </div>
         <div class="form-group clearfix">
